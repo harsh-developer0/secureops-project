@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureOps Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <header class="topbar">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5l8-3z" fill="#2563eb"/><path d="M8.5 12.2l2.6 2.6 4.6-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><strong>SecureOps</strong><span>Secure DevOps pipeline · monitoring · rollback</span></div>
+    </div>
+    <div class="conn" id="conn" role="status"><span class="dot"></span><span id="connText">Connecting…</span></div>
+  </header>
+
+  <main id="main">
+    <section class="notice" aria-label="Real versus simulated">
+      <span class="badge ok">REAL</span> Pipeline, tests, security scan, HTTP health probes, deployments and rollbacks all run locally against the sample app.
+      <span class="badge sim">SIMULATED</span> Only the injected failure (<em>Simulate Failure</em>) is simulated. There is no cloud, GitHub Actions or Docker connection.
+    </section>
+
+    <section class="cards" aria-label="Summary">
+      <article class="card"><h2>Pipeline</h2><div id="sumPipeline"></div></article>
+      <article class="card"><h2>Security</h2><div id="sumSecurity"></div></article>
+      <article class="card"><h2>Application health</h2><div id="sumHealth"></div></article>
+      <article class="card"><h2>Active version</h2><div id="sumVersion"></div></article>
+    </section>
+
+    <section class="panel" aria-labelledby="ctlTitle">
+      <h2 id="ctlTitle">Controls</h2>
+      <div class="controls">
+        <label class="sel">Release version
+          <select id="version"></select>
+        </label>
+        <div class="btns">
+          <button type="button" class="btn primary" id="btnPipeline">Run Pipeline</button>
+          <button type="button" class="btn" id="btnSecurity">Run Security Check</button>
+          <button type="button" class="btn" id="btnDeploy">Deploy</button>
+          <button type="button" class="btn warn" id="btnFail">Simulate Failure</button>
+          <button type="button" class="btn" id="btnHealth">Check Health</button>
+          <button type="button" class="btn danger" id="btnRollback">Rollback</button>
+          <a class="btn link" id="btnLive" href="#" target="_blank" rel="noopener">View Live App ↗</a>
+        </div>
+      </div>
+      <p class="hint" id="versionHint"></p>
+      <div id="msg" class="msg" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <div class="grid2">
+      <section class="panel" aria-labelledby="pipeTitle">
+        <h2 id="pipeTitle">Pipeline stages &amp; logs <span class="badge ok">REAL</span></h2>
+        <div id="pipelineView"><p class="empty">No pipeline run yet. Select a version and click <b>Run Pipeline</b>.</p></div>
+        <h3>Recent runs</h3>
+        <div class="scroll"><table id="runsTable"><thead><tr><th>Run</th><th>Version</th><th>Result</th><th>Finished</th><th></th></tr></thead><tbody></tbody></table></div>
+      </section>
+
+      <section class="panel" aria-labelledby="secTitle">
+        <h2 id="secTitle">Security check results <span class="badge ok">REAL</span></h2>
+        <div id="securityView"><p class="empty">No security check yet. Click <b>Run Security Check</b>.</p></div>
+      </section>
+    </div>
+
+    <div class="grid2">
+      <section class="panel" aria-labelledby="monTitle">
+        <h2 id="monTitle">Monitoring <span class="badge ok">REAL HTTP PROBE</span></h2>
+        <div id="chart" class="chart"></div>
+        <div class="scroll"><table id="healthTable"><thead><tr><th>Time</th><th>Status</th><th>Response</th><th>Version</th><th>Trigger</th></tr></thead><tbody></tbody></table></div>
+      </section>
+
+      <section class="panel" aria-labelledby="depTitle">
+        <h2 id="depTitle">Deployment &amp; rollback history</h2>
+        <div class="scroll"><table id="depTable"><thead><tr><th>Time</th><th>Action</th><th>Version</th><th>Result</th><th>Health</th><th>Pipeline</th></tr></thead><tbody></tbody></table></div>
+      </section>
+    </div>
+
+    <div class="grid2">
+      <section class="panel" aria-labelledby="incTitle">
+        <h2 id="incTitle">Incidents &amp; alerts</h2>
+        <div id="incidents"></div>
+      </section>
+      <section class="panel" aria-labelledby="evtTitle">
+        <h2 id="evtTitle">Activity log</h2>
+        <ul id="events" class="events"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <button type="button" class="btn ghost" id="btnReset">Reset Demo</button>
+    <span>Basic local checks only — not a comprehensive security audit.</span>
+  </footer>
+
+  <dialog id="resetDialog" aria-labelledby="rdTitle">
+    <h2 id="rdTitle">Reset the demo?</h2>
+    <p>This deletes all pipeline runs, security results, health checks, deployments and incidents, and re-activates baseline version 0.9.0.</p>
+    <div class="dlg-btns">
+      <button type="button" class="btn" id="rdCancel">Cancel</button>
+      <button type="button" class="btn danger" id="rdOk">Yes, reset</button>
+    </div>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>

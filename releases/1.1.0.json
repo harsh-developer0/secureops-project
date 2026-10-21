@@ -1,0 +1,17 @@
+{
+  "version": "1.1.0",
+  "releasedAt": "2026-03-01",
+  "notes": "Feature release with a sale banner. Passes the release gate.",
+  "storeName": "SecureShop",
+  "banner": "SecureShop 1.1.0 - Spring sale prices!",
+  "theme": { "accent": "#7c3aed" },
+  "config": { "debug": false, "allowInsecureCors": false },
+  "products": [
+    { "id": "mug", "name": "Ceramic Mug", "priceCents": 999, "color": "#7c3aed", "icon": "☕" },
+    { "id": "notebook", "name": "Notebook", "priceCents": 700, "color": "#0891b2", "icon": "📓" },
+    { "id": "pen", "name": "Gel Pen Set", "priceCents": 550, "color": "#4f46e5", "icon": "🖊️" },
+    { "id": "bottle", "name": "Water Bottle", "priceCents": 1500, "color": "#0d9488", "icon": "🥤" },
+    { "id": "headphones", "name": "Headphones", "priceCents": 4900, "color": "#db2777", "icon": "🎧" },
+    { "id": "backpack", "name": "Backpack", "priceCents": 3900, "color": "#ea580c", "icon": "🎒" }
+  ]
+}

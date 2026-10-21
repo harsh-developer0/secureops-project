@@ -1,0 +1,15 @@
+{
+  "version": "0.9.0",
+  "releasedAt": "2026-01-10",
+  "notes": "Baseline release that is active when the demo starts.",
+  "storeName": "SecureShop",
+  "banner": "Welcome to SecureShop (baseline release 0.9.0)",
+  "theme": { "accent": "#2563eb" },
+  "config": { "debug": false, "allowInsecureCors": false },
+  "products": [
+    { "id": "mug", "name": "Ceramic Mug", "priceCents": 1200, "color": "#2563eb", "icon": "☕" },
+    { "id": "notebook", "name": "Notebook", "priceCents": 800, "color": "#0891b2", "icon": "📓" },
+    { "id": "pen", "name": "Gel Pen Set", "priceCents": 650, "color": "#4f46e5", "icon": "🖊️" },
+    { "id": "bottle", "name": "Water Bottle", "priceCents": 1800, "color": "#0d9488", "icon": "🥤" }
+  ]
+}

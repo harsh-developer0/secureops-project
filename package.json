@@ -1,0 +1,13 @@
+{
+  "name": "secureops-project",
+  "version": "1.0.0",
+  "description": "SecureOps - a local Secure DevOps pipeline demo with monitoring and rollback",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": { "express": "^4.21.2" }
+}

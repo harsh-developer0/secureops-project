@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureShop</title>
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand"><span class="logo" aria-hidden="true">🛍️</span> <span id="storeName">SecureShop</span></div>
+    <div class="bar-right">
+      <span class="ver" id="version">loading…</span>
+      <a href="#cart" class="cart-link" aria-label="Go to cart"><span aria-hidden="true">🛒</span> <b id="cartCount">0</b> · <b id="cartTotal">$0.00</b></a>
+    </div>
+  </header>
+  <p class="banner" id="banner" hidden></p>
+  <main class="layout">
+    <section aria-labelledby="pTitle">
+      <h1 id="pTitle">Products</h1>
+      <div class="grid" id="grid" aria-live="polite"></div>
+    </section>
+    <aside class="cart" id="cart" aria-labelledby="cTitle">
+      <h2 id="cTitle">Your cart</h2>
+      <ul id="cartList" class="cart-list"></ul>
+      <p class="empty" id="cartEmpty">Your cart is empty.</p>
+      <div class="total-row"><span>Total</span><strong id="cartTotal2">$0.00</strong></div>
+      <button class="btn ghost" id="clearBtn" type="button">Clear cart</button>
+    </aside>
+  </main>
+  <footer class="foot">Sample application managed by SecureOps · release <span id="footVer">-</span></footer>
+  <script src="/cart.js"></script>
+  <script src="shop.js"></script>
+</body>
+</html>

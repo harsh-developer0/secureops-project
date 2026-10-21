@@ -1,0 +1,14 @@
+{
+  "version": "1.2.0",
+  "releasedAt": "2026-04-01",
+  "notes": "DEMO FIXTURE: deliberately unsafe release used to show the release gate blocking deployment. The key below is a FAKE placeholder, not a real credential.",
+  "storeName": "SecureShop",
+  "banner": "SecureShop 1.2.0 (unsafe demo fixture)",
+  "theme": { "accent": "#dc2626" },
+  "config": { "debug": true, "allowInsecureCors": true },
+  "integrations": { "paymentApiKey": "DEMO-FAKE-KEY-NOT-REAL-0000" },
+  "products": [
+    { "id": "mug", "name": "Ceramic Mug", "priceCents": 1200, "color": "#dc2626", "icon": "☕" },
+    { "id": "notebook", "name": "Notebook", "priceCents": 800, "color": "#0891b2", "icon": "📓" }
+  ]
+}
